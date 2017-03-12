@@ -3,7 +3,7 @@ function signIn() {
 	console.log('signin')
 	if (firebase.auth().currentUser) {
 		console.log("logged in already")
-		window.location.href = "/home.html";
+		window.location.href = "./home.html";
 	} else {
 		var email = $('#inputEmail').val();
 		var password = $('#inputPassword').val();
@@ -41,6 +41,7 @@ function accountCreate() {
 	var email = $('#inputEmail').val();
 	var password = $('#inputPassword').val();
 	var password2 = $('#inputPassword2').val();
+	var name = $('#inputName').val();
 	/*
 	  if (email.length < 4) {
 		alert('Please enter an email address.');
@@ -66,9 +67,10 @@ function accountCreate() {
 		// An error happened.
 		});
 		firebase.database().ref('users/' + user.uid).update({
-			email:email
+			email:email,
+			name:name
 			});
-			window.location.href = "/home.html";
+			window.location.href = "./home.html";
 		}
 
 		, function(error) {
@@ -87,3 +89,20 @@ function accountCreate() {
 	// [END createwithemail]
 	
 } ;
+
+
+//Date Calculations
+function isLeapYear(year)  {
+    if((year & 3) != 0) return false;
+    return ((year % 100) != 0 || (year % 400) == 0);
+};
+
+// Get Day of Year
+function getDOY(day, month, year){
+    var dayCount = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+    var mn = this.getMonth();
+    var dn = this.getDate();
+    var dayOfYear = dayCount[mn] + dn;
+    if(mn > 1 && this.isLeapYear()) dayOfYear++;
+    return dayOfYear;
+};

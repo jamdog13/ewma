@@ -30,34 +30,20 @@
   firebase.initializeApp(config);
 </script>
 
-<body>
-<div class="container">
-	<h2> Workout Exertion </h2>
-	<form>
-		<h4>Type of Activity</h4>
-        <input type="text" id="workoutType" class="form-control" placeholder="(weightlifting, practice, game, etc.):" required autofocus>
-        </br>
-        <h4>Date</h4>
-		<input type="date" id="myDate" >
-		<br/>
-		<h4>Activity Duration in minutes</h4>
-		<input type="number" id="duration" name="duration" >
-		<br/>
-		<h4>Perceived Exertion Level</h4>
-		<table class="table">
-			<tr><td>0</td><td> Nothing at all; no exertion</td>
-			<tr><td>0.3</td><td> </td>
-			<tr><td>0.5</td><td> Extremely weak; just noticeable</td>
-			<tr><td>1</td><td> Very weak</td>
-			<tr><td>2</td><td> Weak; light exertion</td>
-			<tr><td>3</td><td> Moderate</td>
-			<tr><td>5</td><td> Strong; heavy exertion</td>
-			<tr><td>7</td><td> Very strong</td>
-			<tr><td>0</td><td> Extremely strong; maximal exertion</td>
-		</table>
-		<input type="number" id="exertion" name="exertion" min="0" max="10">
-		<button type="button" class="btn btn-lg btn-primary btn-block" onclick="doForm();"></button>
-	</form>
-</div>
+    <body>
 
-</body>
+    <div class="container">
+
+      <form class="form-signin">
+      <div class = "text-center">
+        <h4>Thank you for submitting your form!</h4>
+        <a href="/home.html">Want to submit another form?</a>
+
+      </div>
+
+    </div> <!-- /container -->
+
+
+  </body>
+
+</html>

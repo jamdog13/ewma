@@ -9,7 +9,8 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <script src="js/index.js"></script>
+    <script src="js/jquery.js"></script>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -45,7 +46,10 @@
         </br>
         <input type="password" id="inputPassword2" class="form-control" placeholder="Password" required>
         </br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="text" id="inputName" class="form-control" placeholder="Full Name" required>
+        </br>
+        <button class="btn btn-lg btn-primary btn-block" type="button" onClick="accountCreate();">Create Account</button>
       </form>
       </br>
       <div>
