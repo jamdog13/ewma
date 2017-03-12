@@ -1,6 +1,8 @@
 
 function signIn() {
+	console.log('signin')
 	if (firebase.auth().currentUser) {
+		console.log("logged in already")
 		window.location.href = "/home.html";
 	} else {
 		var email = $('#inputEmail').val();
@@ -15,7 +17,7 @@ function signIn() {
 		}
 		// Sign in with email and pass.
 		// [START authwithemail]
-
+		console.log("trying to log in")
 		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
 			// Handle Errors here.
 			var errorCode = error.code;
