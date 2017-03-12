@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>UMass Exertion</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBZwMk73SrvDcEGAkx-QM31vrvn-92Fi14",
+    authDomain: "ewma-ea01b.firebaseapp.com",
+    databaseURL: "https://ewma-ea01b.firebaseio.com",
+    storageBucket: "ewma-ea01b.appspot.com",
+    messagingSenderId: "783969407003"
+  };
+  firebase.initializeApp(config);
+</script>
+
+    <body>
+
+    <div class="container">
+
+      <form class="form-signin">
+        <h2 class = "text-center">Create Account</h2>
+        </br>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        </br>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        </br>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        </br>
+        <input type="password" id="inputPassword2" class="form-control" placeholder="Password" required>
+        </br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+      </form>
+      </br>
+      <div>
+        <a href="index.html">
+          <button class="btn btn-lg btn-primary btn-block">Login Page</button>
+        </a>
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+
+</html>
