@@ -36,9 +36,17 @@
 
       <form class="form-signin">
       <div class = "text-center">
-        <h4>Thank you for submitting your form!</h4>
-        <a href="./home.html">Want to submit another form?</a>
-
+        <h4>Lookup EWMA</h4>
+        Email
+        <input type="text" id="ewmaEmail" class="form-control" placeholder="email" required autofocus>
+        </br>
+        End Date: (defaults to Today) <input type="date" id="endDate" >
+        </br>
+        </br>
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="lookupEmail();">Lookup EWMA</button>
+        <div id="ewma"></div>
+        <table class="table" id="workoutsTable">
+        </table>
       </div>
 
     </div> <!-- /container -->
