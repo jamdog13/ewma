@@ -215,18 +215,36 @@ function lookupEmail() {
 									workouts[i] = (workoutsDict[year][i])
 								}
 							}
+
 							console.log(workouts)
-							for (var i = minIndex; i <=endDoy; i++) {
+							var emwaSum28 = 0;
+					    	var emwaSum7 = 0;
+					    	var n28 = 29;
+					    	var n7 = 8;
+							for (var i = endDoy-28; i <=endDoy; i++) {
+								var power = endDoy-i;
 							    if (typeof workouts[i] != "undefined") {
 							    	console.log("defined workout")
 							    	var daysWorkouts = workouts[i];
-							    	var emwaSum28;
-							    	var emwaSum7;
+							    	
 							    	for (var session in daysWorkouts) {
 							    		console.log("session here")
 							    		if (daysWorkouts.hasOwnProperty(session)) {
+							    			console.log(power)
 							    			var sess = daysWorkouts[session];
+
+											emwaSum28 = emwaSum28 + parseInt(sess.exertion) * parseInt(sess.duration) * Math.pow(((n28-2)/n28), power) * (2/n28);
+											if(power<7) {
+												emwaSum7 = emwaSum7 + parseInt(sess.exertion) * parseInt(sess.duration) * Math.pow(((n7-2)/n7), power) * (2/n7);
+											}
+											console.log(parseInt(sess.exertion) * parseInt(session.duration) * Math.pow(((n7-2)/n7), power) * (2/n7))
+											console.log("exertion: "+sess.exertion)
+											console.log(sess.duration)
+											console.log("power: ",Math.pow(((n7-2)/n7),power))
+											console.log(emwaSum28)
+											console.log(emwaSum7)
 							    			console.log("should be here")
+							    			
 							        		document.getElementById("workoutsTable").insertRow(-1).innerHTML =
 	"<tr><td>"+sess.rawdate+"</td><td>Duration: "+sess.duration+"</td> <td>Exertion: "+sess.exertion+"</td><td> type:"+sess.workoutType+"</td></tr>"
 							        	}
@@ -234,6 +252,7 @@ function lookupEmail() {
 
 							    }
 							}
+							$('#ewma').append("Ewma 7:28 Ratio: "+emwaSum7/emwaSum28+"</br>Ewma7: "+emwaSum7+ "</br>Ewma28: "+emwaSum28)
 						}
 
 					});
@@ -249,4 +268,33 @@ function lookupEmail() {
 
 
 
+}
+
+function getEwma(workouts, endDoy) {
+	var emwaSum28;
+	var emwaSum7;
+	var n28 = 29;
+	var n7 = 8;
+	for (var i = endDoy-28; i <=endDoy; i++) {
+		var power = endDoy-i;
+	    if (typeof workouts[i] != "undefined") {
+	    	console.log("defined workout")
+	    	var daysWorkouts = workouts[i];
+	    	
+	    	for (var session in daysWorkouts) {
+	    		console.log("session here")
+	    		if (daysWorkouts.hasOwnProperty(session)) {
+	    			var sess = daysWorkouts[session];
+					emwaSum28 = emwaSum28 + sess.exertion * session.duration * ((n28-2)/n28)^ power * (2/n28);
+					if(power<7) {
+						emwaSum7 = emwaSum7 + sess.exertion * session.duration * ((n7-2)/n7)^ power * (2/n7);
+					}
+
+	    			
+	        	}
+	    	}
+
+	    }
+	}
+	return {ewma7:emwaSum7, ewma28:emwaSum28}
 }
