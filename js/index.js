@@ -103,6 +103,10 @@ function accountCreate() {
 function doForm() {
 	var workoutType = $('#workoutType').val();
 	var dateBlob = $('#myDate').val();
+	if(!dateBlob) {
+		alert('please submit a date')
+		return
+	}
 	var dateList = dateBlob.split("-");
 	var day = dateList[2];
 	var month = dateList[1];
